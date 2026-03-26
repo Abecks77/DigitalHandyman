@@ -510,7 +510,7 @@ export default function App() {
                 </div>
 
                 <motion.a 
-                  href="https://buy.stripe.com/4gw9Cq6yN43m3YI9AA"
+                  href="https://api.digitalhandyman.xyz/payment-link/69beae18b5622a509ebe3311"
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
                   className="w-full py-4 rounded-xl bg-white/5 border border-white/10 text-white font-semibold flex items-center justify-center gap-2 hover:bg-white/10 transition-colors"
