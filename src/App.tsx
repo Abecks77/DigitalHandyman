@@ -102,14 +102,14 @@ export default function App() {
         className="fixed top-0 w-full z-50 bg-slate-950/80 backdrop-blur-md border-b border-white/5"
       >
         <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
-          <div className="flex items-center gap-2">
+          <a href="#" className="flex items-center gap-2 cursor-pointer">
             <img 
               src="https://lh3.googleusercontent.com/d/1O0D--D5ee8HtZEeMNTmcab4xdg_TXTVK" 
               alt="Digital Handyman Logo" 
               className="h-12 md:h-14 w-auto object-contain"
               referrerPolicy="no-referrer"
             />
-          </div>
+          </a>
           <div className="hidden md:flex items-center gap-8 text-sm font-medium text-slate-300">
             <a href="#how-it-works" className="hover:text-white transition-colors">How it Works</a>
             <a href="#digital-workforce" className="hover:text-white transition-colors">Digital Workforce</a>
