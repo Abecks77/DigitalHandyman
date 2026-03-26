@@ -21,7 +21,10 @@ import {
   Coffee,
   Frown,
   Phone,
-  Mail
+  Mail,
+  Mic,
+  Handshake,
+  Brain
 } from 'lucide-react';
 
 const FadeIn: React.FC<{ children: React.ReactNode, delay?: number, className?: string }> = ({ children, delay = 0, className = "" }) => (
@@ -108,17 +111,18 @@ export default function App() {
             />
           </div>
           <div className="hidden md:flex items-center gap-8 text-sm font-medium text-slate-300">
-            <a href="#features" className="hover:text-white transition-colors">Features</a>
             <a href="#how-it-works" className="hover:text-white transition-colors">How it Works</a>
-            <a href="#testimonials" className="hover:text-white transition-colors">Testimonials</a>
+            <a href="#digital-workforce" className="hover:text-white transition-colors">Digital Workforce</a>
+            <a href="#features" className="hover:text-white transition-colors">Losing Leads?</a>
+            <a href="#pricing" className="hover:text-white transition-colors">Automation Level</a>
           </div>
           <motion.a 
             href="https://api.digitalhandyman.xyz/payment-link/69beae18b5622a509ebe3311"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            className="px-5 py-2.5 text-sm font-semibold rounded-full bg-white text-slate-950 hover:bg-slate-200 transition-colors"
+            className="px-6 py-2 rounded-full bg-slate-950 border border-white/20 text-white text-sm font-semibold hover:bg-white hover:text-slate-950 transition-all flex items-center gap-2"
           >
-            Get access today!
+            Get Started <ArrowRight className="w-4 h-4" />
           </motion.a>
         </div>
       </motion.nav>
@@ -137,13 +141,13 @@ export default function App() {
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-yellow-400 opacity-75"></span>
                 <span className="relative inline-flex rounded-full h-2 w-2 bg-yellow-500"></span>
               </span>
-              AI Employees for Local Businesses
+              AI Automations for Local Businesses
             </div>
             <h1 className="text-5xl md:text-7xl font-bold tracking-tight leading-[1.1] mb-6 max-w-4xl">
               Stop Losing Leads You <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-500 via-cyan-400 to-yellow-400">Already Have</span>
             </h1>
             <p className="text-lg md:text-xl text-slate-400 max-w-2xl leading-relaxed">
-              You worked hard to get the phone to ring. Our AI employees engage instantly, turning missed calls and form fills into booked appointments while you focus on the actual work. We fix the leaks in your pipeline.
+              You worked hard to get the phone to ring. Our AI automations engage instantly, turning missed calls and form fills into booked appointments while you focus on the actual work. We fix the leaks in your pipeline.
             </p>
           </motion.div>
 
@@ -349,9 +353,9 @@ export default function App() {
       <section id="how-it-works" className="py-24 md:py-32 relative z-10">
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center max-w-3xl mx-auto mb-20">
-            <h2 className="text-3xl md:text-5xl font-bold mb-6">We build the employee. <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-500 via-cyan-400 to-yellow-400">You reap the rewards.</span></h2>
+            <h2 className="text-3xl md:text-5xl font-bold mb-6">We build the automation. <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-500 via-cyan-400 to-yellow-400">You reap the rewards.</span></h2>
             <p className="text-lg text-slate-400">
-              You don't need to be a tech expert. Digital Handyman takes care of the entire setup, training, and deployment of your AI employees. We custom-fit them to your business.
+              You don't need to be a tech expert. Digital Handyman takes care of the entire setup, training, and deployment of your AI automations. We custom-fit them to your business.
             </p>
           </div>
 
@@ -383,7 +387,7 @@ export default function App() {
               {
                 step: "02",
                 title: "We Deploy Your AI",
-                desc: "We connect your Google Business number, website forms, and ad campaigns to your custom-trained AI employee."
+                desc: "We connect your Google Business number, website forms, and ad campaigns to your custom-trained AI automation."
               },
               {
                 step: "03",
@@ -406,7 +410,7 @@ export default function App() {
       </section>
 
       {/* Use Cases Section */}
-      <section className="py-24 md:py-32 relative z-10">
+      <section id="digital-workforce" className="py-24 md:py-32 relative z-10">
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center max-w-3xl mx-auto mb-16">
             <h2 className="text-3xl md:text-5xl font-bold mb-6">Meet your new <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-500 via-cyan-400 to-yellow-400">digital workforce</span></h2>
@@ -425,7 +429,7 @@ export default function App() {
               {
                 icon: UserCheck,
                 title: "The Lead Qualifier",
-                desc: "Stop wasting time driving to unqualified estimates. Your AI employee engages new leads via SMS or web chat, asks your specific qualifying questions, and filters out the tire-kickers before they ever reach your desk.",
+                desc: "Stop wasting time driving to unqualified estimates. Your AI automation engages new leads via SMS or web chat, asks your specific qualifying questions, and filters out the tire-kickers before they ever reach your desk.",
               },
               {
                 icon: CalendarCheck,
@@ -435,7 +439,7 @@ export default function App() {
               {
                 icon: RefreshCw,
                 title: "The Follow-Up Machine",
-                desc: "Sent a quote but haven't heard back? Finished a job and need a Google review? Your AI employee automatically follows up with customers via text or email at the perfect time, increasing your close rate and boosting your local SEO.",
+                desc: "Sent a quote but haven't heard back? Finished a job and need a Google review? Your AI automation automatically follows up with customers via text or email at the perfect time, increasing your close rate and boosting your local SEO.",
               }
             ].map((role, i) => (
               <FadeIn key={i} delay={i * 0.1}>
@@ -453,6 +457,121 @@ export default function App() {
                 </motion.div>
               </FadeIn>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Comparison Chart Section */}
+      <section id="pricing" className="py-24 md:py-32 relative z-10">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="text-center max-w-3xl mx-auto mb-16">
+            <h2 className="text-3xl md:text-5xl font-bold mb-6">Choose your <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-500 via-cyan-400 to-yellow-400">automation level</span></h2>
+            <p className="text-lg text-slate-400">
+              Whether you're just starting to automate or ready for a full-scale AI workforce, we have the right toolkit for your business.
+            </p>
+          </div>
+
+          <div className="grid lg:grid-cols-2 gap-8 items-stretch">
+            {/* Lite Column */}
+            <FadeIn delay={0.1} className="h-full">
+              <div className="h-full rounded-3xl bg-slate-900/40 border border-white/5 p-8 md:p-10 flex flex-col relative overflow-hidden group hover:border-white/10 transition-colors">
+                <div className="flex items-center justify-between mb-8">
+                  <div className="flex items-center gap-4">
+                    <div className="w-12 h-12 rounded-xl bg-white/5 flex items-center justify-center">
+                      <Wrench className="w-6 h-6 text-slate-400" />
+                    </div>
+                    <div>
+                      <h3 className="text-2xl font-bold text-white">Digital Handyman Automation Toolkit</h3>
+                      <p className="text-slate-400 text-sm">Automated systems that capture and follow up on leads</p>
+                    </div>
+                  </div>
+                  <span className="px-3 py-1 rounded-full bg-white/5 border border-white/10 text-[10px] font-bold text-slate-400 tracking-widest uppercase">Lite</span>
+                </div>
+
+                <div className="space-y-8 mb-12 flex-grow">
+                  <div className="text-[10px] font-bold text-slate-500 tracking-[0.2em] uppercase mb-6">Lead Capture & Automation</div>
+                  
+                  {[
+                    { icon: PhoneMissed, title: "Missed Call Text-Back", desc: "Instantly texts anyone who calls when you're busy. Turns missed calls into text conversations automatically." },
+                    { icon: MessageSquare, title: "24/7 AI Website Chat Widget", desc: "Engages visitors on your site around the clock and collects their contact info." },
+                    { icon: Send, title: "Instant SMS Follow-Up", desc: "Automatically texts leads the second they submit a form. Strike while the iron is hot." },
+                    { icon: CalendarCheck, title: "Seamless Booking", desc: "AI handles back-and-forth scheduling directly onto your calendar — no phone tag required." },
+                    { icon: RefreshCw, title: "Database Reactivation", desc: "ECHO uses AI-powered SMS to re-engage dead leads and past clients, turning your existing list into booked appointments." },
+                    { icon: TrendingUp, title: "Reputation Rocket (Auto Reviews)", desc: "ECHO triggers Google review requests via SMS the moment you finish a job — driving map rankings and organic calls on autopilot." }
+                  ].map((item, i) => (
+                    <div key={i} className="flex gap-4">
+                      <item.icon className="w-5 h-5 text-slate-500 shrink-0 mt-1" />
+                      <div>
+                        <h4 className="text-white font-semibold mb-1">{item.title}</h4>
+                        <p className="text-slate-400 text-sm leading-relaxed">{item.desc}</p>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+
+                <motion.a 
+                  href="https://buy.stripe.com/4gw9Cq6yN43m3YI9AA"
+                  whileHover={{ scale: 1.02 }}
+                  whileTap={{ scale: 0.98 }}
+                  className="w-full py-4 rounded-xl bg-white/5 border border-white/10 text-white font-semibold flex items-center justify-center gap-2 hover:bg-white/10 transition-colors"
+                >
+                  Get Access to Digital Handyman Automation Toolkit <ArrowRight className="w-4 h-4" />
+                </motion.a>
+              </div>
+            </FadeIn>
+
+            {/* Pro Column */}
+            <FadeIn delay={0.2} className="h-full">
+              <div className="h-full rounded-3xl bg-gradient-to-b from-slate-900 to-slate-950 border border-blue-500/20 p-8 md:p-10 flex flex-col relative overflow-hidden group hover:border-blue-500/40 transition-colors shadow-[0_0_50px_rgba(59,130,246,0.1)]">
+                <div className="absolute top-0 right-0 w-32 h-32 bg-blue-500/10 rounded-full blur-[60px]" />
+                
+                <div className="flex items-center justify-between mb-8 relative z-10">
+                  <div className="flex items-center gap-4">
+                    <div className="w-12 h-12 rounded-xl bg-blue-500/20 flex items-center justify-center">
+                      <Bot className="w-6 h-6 text-blue-400" />
+                    </div>
+                    <div>
+                      <h3 className="text-2xl font-bold text-white">Digital Handyman Pro</h3>
+                      <p className="text-slate-400 text-sm">Everything in the Toolkit, plus a 24/7 AI employee that closes</p>
+                    </div>
+                  </div>
+                  <span className="px-3 py-1 rounded-full bg-blue-500/20 border border-blue-500/30 text-[10px] font-bold text-blue-400 tracking-widest uppercase">Pro</span>
+                </div>
+
+                <div className="space-y-8 mb-12 flex-grow relative z-10">
+                  <div className="text-[10px] font-bold text-blue-400/60 tracking-[0.2em] uppercase mb-6">Everything in the Toolkit, Plus...</div>
+                  
+                  {[
+                    { icon: Mic, title: "AI Voice Agent (Echo)", desc: "ECHO answers calls live, holds natural conversations, and handles inquiries — just like a real employee. Available every hour of every day." },
+                    { icon: UserCheck, title: "Real-Time Lead Qualification", desc: "ECHO asks the right questions, determines fit and intent, and filters out time-wasters — so your team only talks to serious prospects." },
+                    { icon: Handshake, title: "Warm Handoff To Your Team", desc: "When ECHO qualifies a lead, it hands off a full summary — their needs, urgency, and intent — so your team steps in ready to close." },
+                    { icon: Brain, title: "Trained On Your Business", desc: "ECHO is custom-trained on your services, your pricing, and the way you communicate. It sounds like a knowledgeable member of your team — not a robot." }
+                  ].map((item, i) => (
+                    <div key={i} className="flex gap-4">
+                      <div className="w-10 h-10 rounded-lg bg-blue-500/10 flex items-center justify-center shrink-0">
+                        <item.icon className="w-5 h-5 text-blue-400" />
+                      </div>
+                      <div className="flex-grow">
+                        <div className="flex items-center justify-between mb-1">
+                          <h4 className="text-white font-semibold">{item.title}</h4>
+                          <span className="text-[8px] font-bold text-blue-400 bg-blue-500/10 px-1.5 py-0.5 rounded border border-blue-500/20 uppercase tracking-tighter">Pro Only</span>
+                        </div>
+                        <p className="text-slate-400 text-sm leading-relaxed">{item.desc}</p>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+
+                <motion.a 
+                  href="https://buy.stripe.com/4gw9Cq6yN43m3YI9AA"
+                  whileHover={{ scale: 1.02 }}
+                  whileTap={{ scale: 0.98 }}
+                  className="w-full py-4 rounded-xl bg-gradient-to-r from-blue-600 via-cyan-500 to-blue-500 text-white font-semibold flex items-center justify-center gap-2 shadow-lg shadow-blue-500/20 relative z-10"
+                >
+                  Look at Digital Handyman Pro <ArrowRight className="w-4 h-4" />
+                </motion.a>
+              </div>
+            </FadeIn>
           </div>
         </div>
       </section>
@@ -544,7 +663,7 @@ export default function App() {
               <div className="max-w-2xl mb-12">
                 <h2 className="text-3xl md:text-5xl font-bold mb-6">Ready to stop losing leads?</h2>
                 <p className="text-lg text-slate-400 mb-8">
-                  Get access today and let us build your AI employee. Start turning missed opportunities into booked jobs and hidden revenue.
+                  Get access today and let us build your AI automation. Start turning missed opportunities into booked jobs and hidden revenue.
                 </p>
                 <ul className="flex flex-col md:flex-row items-center justify-center gap-4 md:gap-8">
                   {['We handle the setup', 'Integrates with your tools', 'Cancel anytime'].map((item, i) => (
@@ -679,7 +798,7 @@ export default function App() {
                 />
               </div>
               <p className="text-slate-400 max-w-sm mb-6">
-                Building AI employees for local businesses to stop lead leakage and drive revenue growth.
+                Building AI automations for local businesses to stop lead leakage and drive revenue growth.
               </p>
               <div className="flex items-center gap-4 text-slate-400">
                 <a href="#" className="hover:text-white transition-colors"><Facebook className="w-5 h-5" /></a>
