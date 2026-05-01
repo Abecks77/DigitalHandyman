@@ -9,6 +9,7 @@ import {
   Clock,
   CheckCircle2,
   ArrowRight,
+  ArrowDown,
   Send,
   Facebook,
   Youtube,
@@ -24,7 +25,18 @@ import {
   Mail,
   Mic,
   Handshake,
-  Brain
+  Brain,
+  Monitor,
+  Layout,
+  Sparkles,
+  Server,
+  Palette,
+  Settings,
+  Users,
+  Activity,
+  Bell,
+  Search,
+  Star
 } from 'lucide-react';
 
 const FadeIn: React.FC<{ children: React.ReactNode, delay?: number, className?: string }> = ({ children, delay = 0, className = "" }) => (
@@ -127,131 +139,206 @@ export default function App() {
         </div>
       </motion.nav>
 
-      {/* Hero Section */}
-      <section className="relative pt-32 pb-20 md:pt-48 md:pb-32">
-        <div className="max-w-5xl mx-auto px-6 flex flex-col items-center text-center gap-16">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="flex flex-col items-center"
-          >
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 text-sm text-yellow-400 font-medium mb-6">
-              <span className="relative flex h-2 w-2">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-yellow-400 opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-yellow-500"></span>
-              </span>
-              AI Automations for Local Businesses
-            </div>
-            <h1 className="text-5xl md:text-7xl font-bold tracking-tight leading-[1.1] mb-6 max-w-4xl">
-              Stop Losing Leads You <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-500 via-cyan-400 to-yellow-400">Already Have</span>
-            </h1>
-            <p className="text-lg md:text-xl text-slate-400 max-w-2xl leading-relaxed">
-              You worked hard to get the phone to ring. Our AI automations engage instantly, turning missed calls and form fills into booked appointments while you focus on the actual work. We fix the leaks in your pipeline.
-            </p>
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, y: 40 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="relative w-full max-w-4xl"
-          >
-            <motion.div 
-              animate={{ y: [-10, 10, -10] }}
-              transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-              className="relative w-full rounded-2xl bg-slate-950 border border-white/10 p-6 md:p-8 shadow-2xl flex flex-col gap-6 mt-4"
+      {/* ---------------- NEW HERO SECTION ---------------- */}
+      <section className="relative pt-32 pb-20 md:pt-48 md:pb-32 overflow-hidden">
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-blue-900/10 via-slate-950 to-slate-950 pointer-events-none" />
+        
+        <div className="max-w-7xl mx-auto px-6 relative z-10">
+          <div className="grid lg:grid-cols-2 gap-16 items-center">
+            
+            {/* Left Copy */}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8 }}
+              className="flex flex-col items-center lg:items-start text-center lg:text-left"
             >
-              {/* Background glows */}
-              <div className="absolute top-0 left-0 w-1/2 h-full bg-red-500/5 blur-[80px] pointer-events-none rounded-2xl" />
-              <div className="absolute top-0 right-0 w-1/2 h-full bg-blue-500/10 blur-[80px] pointer-events-none rounded-2xl" />
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/20 text-sm text-blue-400 font-semibold mb-6">
+                <Sparkles className="w-4 h-4" />
+                Build a workhorse site
+              </div>
+              
+              <h1 className="text-5xl md:text-7xl font-bold tracking-tight leading-[1.1] mb-6 max-w-2xl">
+                Turn your Website into your <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-cyan-400 to-yellow-400">Best Employee.</span>
+              </h1>
+              
+              <p className="text-xl text-slate-400 leading-relaxed mb-8 max-w-xl">
+                A good-looking website is just a brochure. We pair premium branding with intelligent AI automations to build a 24/7 lead-generating engine. Stop losing leads you already have.
+              </p>
 
-              <div className="flex flex-col md:flex-row gap-8 md:gap-4 relative mt-4">
-                
-                {/* Left Side: NOW */}
-                <div className="flex-1 bg-slate-900/80 border border-white/5 rounded-xl p-5 flex flex-col relative">
-                  <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 z-20">
-                    <span className="bg-slate-800 text-slate-300 px-6 py-1.5 rounded-full font-semibold text-sm border border-white/10 shadow-lg whitespace-nowrap">Now</span>
-                  </div>
-                  <div className="grid grid-cols-2 gap-4 mt-4 mb-4 flex-1">
-                    <div className="bg-slate-950 border border-white/5 rounded-lg p-4 flex flex-col items-center justify-center text-center gap-3 relative group">
-                      <div className="absolute top-2 right-2 bg-red-500 text-white text-[10px] font-bold px-1.5 py-0.5 rounded-full animate-pulse">9+</div>
-                      <PhoneMissed className="w-8 h-8 text-slate-400 group-hover:text-red-400 transition-colors" />
-                      <span className="text-xs font-semibold text-slate-300">MISSED CALLS</span>
-                    </div>
-                    <div className="bg-slate-950 border border-white/5 rounded-lg p-4 flex flex-col items-center justify-center text-center gap-3 group">
-                      <Frown className="w-8 h-8 text-slate-400 group-hover:text-red-400 transition-colors" />
-                      <span className="text-xs font-semibold text-slate-300">FRUSTRATION</span>
-                    </div>
-                  </div>
-                  <div className="text-center mt-auto pt-3 border-t border-white/5">
-                    <p className="text-sm text-slate-300">Missed calls, dealing with chaos</p>
-                    <p className="text-sm font-bold text-red-400 mt-0.5">every day</p>
-                  </div>
-                </div>
-
-
-
-                {/* Right Side: WITH AI */}
-                <div className="flex-[1.2] bg-blue-950/30 border border-blue-500/30 rounded-xl p-5 flex flex-col relative">
-                  <div className="absolute inset-0 bg-gradient-to-br from-blue-500/10 to-cyan-500/10 pointer-events-none rounded-xl" />
-                  <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 z-20">
-                    <span className="bg-gradient-to-r from-blue-600 to-cyan-600 text-white px-6 py-1.5 rounded-full font-bold text-sm shadow-[0_0_15px_rgba(37,99,235,0.5)] border border-blue-400/50 whitespace-nowrap">With Digital Handyman</span>
-                  </div>
-                  <div className="grid grid-cols-2 gap-4 mt-4 mb-4 flex-1 relative z-10">
-                    <div className="bg-slate-900/80 border border-blue-500/30 rounded-lg p-4 flex flex-col items-center justify-center text-center gap-3 shadow-[inset_0_0_15px_rgba(59,130,246,0.15)] group hover:border-blue-400/50 transition-colors">
-                      <Bot className="w-8 h-8 text-blue-400 group-hover:scale-110 transition-transform" />
-                      <span className="text-xs font-bold text-blue-100">AI ANSWERS</span>
-                    </div>
-                    <div className="bg-slate-900/80 border border-blue-500/30 rounded-lg p-4 flex flex-col items-center justify-center text-center gap-3 shadow-[inset_0_0_15px_rgba(59,130,246,0.15)] group hover:border-blue-400/50 transition-colors">
-                      <ClipboardCheck className="w-8 h-8 text-yellow-400 group-hover:scale-110 transition-transform" />
-                      <span className="text-xs font-bold text-blue-100">QUALIFIED LEADS</span>
-                    </div>
-                    <div className="bg-slate-900/80 border border-blue-500/30 rounded-lg p-4 flex flex-col items-center justify-center text-center gap-3 shadow-[inset_0_0_15px_rgba(59,130,246,0.15)] group hover:border-blue-400/50 transition-colors">
-                      <Coffee className="w-8 h-8 text-blue-400 group-hover:scale-110 transition-transform" />
-                      <span className="text-xs font-bold text-blue-100">PEACE OF MIND</span>
-                    </div>
-                    <div className="bg-slate-900/80 border border-blue-500/30 rounded-lg p-4 flex flex-col items-center justify-center text-center gap-3 shadow-[inset_0_0_15px_rgba(59,130,246,0.15)] group hover:border-blue-400/50 transition-colors">
-                      <TrendingUp className="w-8 h-8 text-yellow-400 group-hover:scale-110 transition-transform" />
-                      <span className="text-xs font-bold text-blue-100">GROWTH</span>
-                    </div>
-                  </div>
-                  <div className="text-center mt-auto pt-3 border-t border-blue-500/20 relative z-10">
-                    <p className="text-sm text-blue-100">Consistent leads, <span className="font-bold text-yellow-400">smooth operation</span></p>
-                    <p className="text-sm font-bold text-yellow-400 mt-0.5">& predictable revenue</p>
-                  </div>
-                </div>
-
+              <div className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto">
+                <motion.a 
+                  href="#how-it-works"
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  className="px-8 py-4 font-semibold text-slate-300 rounded-full bg-white/5 border border-white/10 hover:bg-white/10 transition-colors flex items-center justify-center gap-2"
+                >
+                  See how it works
+                  <ArrowDown className="w-5 h-5" />
+                </motion.a>
               </div>
             </motion.div>
-          </motion.div>
 
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
-            className="flex flex-col sm:flex-row gap-4 justify-center w-full mt-2"
-          >
-            <motion.a 
-              href="https://api.digitalhandyman.xyz/payment-link/69beae18b5622a509ebe3311"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="group relative px-8 py-4 font-semibold text-white rounded-full bg-gradient-to-r from-blue-600 to-cyan-500 hover:from-blue-500 hover:to-cyan-400 transition-all shadow-[0_0_40px_rgba(59,130,246,0.4)] hover:shadow-[0_0_60px_rgba(59,130,246,0.6)] flex items-center justify-center gap-2"
+            {/* Right Visual / Interactive Website Showcase */}
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              className="relative w-full h-full min-h-[500px]"
             >
-              Get access today!
-              <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-            </motion.a>
-            <motion.a 
-              href="#how-it-works"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="px-8 py-4 font-semibold text-slate-300 rounded-full bg-white/5 border border-white/10 hover:bg-white/10 transition-colors flex items-center justify-center"
-            >
-              See how it works
-            </motion.a>
-          </motion.div>
+              <div className="absolute inset-0 bg-gradient-to-br from-blue-500/20 to-cyan-500/20 rounded-3xl blur-[80px]" />
+              
+              <div className="relative w-full aspect-[4/3] bg-slate-900 border border-slate-700/50 flex flex-col rounded-xl shadow-2xl overflow-hidden mt-8 lg:mt-0">
+                {/* Browser Header */}
+                <div className="h-10 bg-slate-800/80 border-b border-slate-700/50 flex items-center px-4 gap-2">
+                  <div className="flex gap-1.5">
+                    <div className="w-3 h-3 rounded-full bg-red-500/80" />
+                    <div className="w-3 h-3 rounded-full bg-yellow-500/80" />
+                    <div className="w-3 h-3 rounded-full bg-green-500/80" />
+                  </div>
+                  <div className="ml-4 flex-1 h-6 bg-slate-900/50 rounded-md border border-slate-700/50 flex items-center justify-center px-3">
+                     <span className="text-[10px] text-slate-400 font-mono">yourbusiness.com</span>
+                  </div>
+                </div>
+                
+                {/* Simulated Website UI */}
+                <div className="flex-1 bg-slate-950 p-6 relative overflow-hidden flex flex-col items-center">
+                   
+                    <div className="w-full flex justify-between items-center mb-10 opacity-60">
+                        <div className="w-24 h-6 bg-slate-800 rounded" />
+                        <div className="flex gap-4">
+                           <div className="w-12 h-2 bg-slate-800 rounded" />
+                           <div className="w-12 h-2 bg-slate-800 rounded" />
+                           <div className="w-12 h-2 bg-slate-800 rounded" />
+                        </div>
+                    </div>
+
+                    <div className="w-3/4 h-10 bg-slate-800/50 rounded-lg mb-6" />
+                    <div className="w-2/3 h-4 bg-slate-800/30 rounded mb-3" />
+                    <div className="w-1/2 h-4 bg-slate-800/30 rounded mb-10" />
+
+                    <div className="w-32 h-10 bg-blue-600/50 rounded-full" />
+
+                    {/* Interactive Elements / Automations Popping Up */}
+                    
+                    {/* Missed Call Notification */}
+                    <motion.div 
+                        initial={{ opacity: 0, x: 20 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        transition={{ delay: 1, duration: 0.5 }}
+                        className="absolute top-20 right-4 bg-slate-900 border border-slate-700 rounded-lg p-3 shadow-xl w-48 flex items-start gap-3"
+                    >
+                        <div className="w-8 h-8 rounded-full bg-yellow-500/20 flex items-center justify-center shrink-0">
+                           <PhoneMissed className="w-4 h-4 text-yellow-500" />
+                        </div>
+                        <div>
+                            <div className="text-[10px] text-slate-300 font-semibold mb-1">Missed Call: 555-0192</div>
+                            <div className="text-[9px] text-slate-500">Auto text-back sent.</div>
+                        </div>
+                    </motion.div>
+
+                    {/* New Lead Booking */}
+                    <motion.div 
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ delay: 2.5, duration: 0.5 }}
+                        className="absolute bottom-24 left-4 bg-slate-900 border border-blue-500/30 rounded-lg p-3 shadow-xl w-52 flex items-start gap-3"
+                    >
+                        <div className="w-8 h-8 rounded-full bg-blue-500/20 flex items-center justify-center shrink-0">
+                           <CalendarCheck className="w-4 h-4 text-blue-400" />
+                        </div>
+                        <div>
+                            <div className="text-[10px] text-blue-100 font-semibold mb-1">New Estimate Booked</div>
+                            <div className="text-[9px] text-slate-400">Sarah M. selected 2:00 PM</div>
+                        </div>
+                    </motion.div>
+
+                    {/* AI Chat Widget */}
+                    <motion.div 
+                        initial={{ scale: 0 }}
+                        animate={{ scale: 1 }}
+                        transition={{ delay: 1.5, type: "spring", stiffness: 200, damping: 20 }}
+                        className="absolute bottom-4 right-4"
+                        whileHover={{ scale: 1.05 }}
+                    >
+                        <div className="relative cursor-pointer">
+                            <div className="absolute -top-12 right-0 bg-blue-600 text-white text-[10px] font-medium py-1.5 px-3 rounded-t-xl text-center rounded-bl-xl shadow-lg border border-blue-500 whitespace-nowrap">
+                                Hi! Need a quote? 👋
+                            </div>
+                            <div className="w-12 h-12 bg-blue-600 rounded-full flex items-center justify-center shadow-lg shadow-blue-500/30 hover:bg-blue-500 transition-colors">
+                            <MessageSquare className="w-6 h-6 text-white" />
+                            </div>
+                        </div>
+                    </motion.div>
+                </div>
+              </div>
+            </motion.div>
+
+          </div>
         </div>
       </section>
+
+      {/* Philosophy Section */}
+      <section className="py-24 md:py-32 relative z-10 bg-slate-950/20">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="grid md:grid-cols-2 gap-16 items-center">
+            
+            <FadeIn className="order-2 md:order-1 relative">
+              <div className="aspect-square w-full max-w-xs md:max-w-md mx-auto relative">
+                <div className="absolute inset-0 rounded-full border border-white/5 animate-[spin_60s_linear_infinite]" />
+                <div className="absolute inset-4 rounded-full border border-blue-500/20 border-dashed animate-[spin_40s_linear_infinite_reverse]" />
+                
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <div className="w-48 h-48 bg-slate-900 border border-white/10 rounded-full flex flex-col items-center justify-center p-6 text-center shadow-[0_0_50px_rgba(59,130,246,0.15)] relative z-10">
+                    <Server className="w-10 h-10 text-blue-400 mb-3" />
+                    <div className="font-bold text-white tracking-tight">The Workhorse</div>
+                    <div className="text-xs text-slate-400 mt-1 uppercase tracking-widest">Brand + Engine</div>
+                  </div>
+                </div>
+
+                {/* Orbiting Elements */}
+                <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 w-16 h-16 bg-slate-950 border border-white/10 rounded-2xl flex items-center justify-center shadow-[0_0_30px_rgba(34,211,238,0.2)]">
+                  <Palette className="w-6 h-6 text-cyan-400" />
+                </div>
+                <div className="absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-1/2 w-16 h-16 bg-slate-950 border border-white/10 rounded-2xl flex items-center justify-center shadow-[0_0_30px_rgba(250,204,21,0.2)]">
+                  <Settings className="w-6 h-6 text-yellow-400" />
+                </div>
+              </div>
+            </FadeIn>
+
+            <FadeIn delay={0.2} className="order-1 md:order-2">
+              <h2 className="text-3xl md:text-5xl font-bold mb-6">Why just look good when you can <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-400">perform?</span></h2>
+              <p className="text-lg text-slate-400 mb-6 leading-relaxed">
+                Most agencies build "brochure websites"—they look nice, but sit idly waiting for customers to do the work. The problem? When local business owners are on a job site, they miss phone calls, and forms go unanswered for hours. 
+              </p>
+              <p className="text-lg font-semibold text-white mb-8 border-l-2 border-blue-500 pl-4 py-1">
+                We believe your website should be an active employee. 
+              </p>
+              <ul className="space-y-4">
+                {[
+                  { title: "Premium Branding", desc: "Establishes instant credibility and authority before you even speak.", icon: Palette, color: "text-blue-400" },
+                  { title: "AI Lead Capture", desc: "Instantly engages missed calls and web form fills so leads don't go cold.", icon: Zap, color: "text-cyan-400" },
+                  { title: "Automated Nurture", desc: "Qualifies prospects and books appointments directly onto your calendar.", icon: CalendarCheck, color: "text-yellow-400" }
+                ].map((item, i) => (
+                  <li key={i} className="flex items-start gap-4 p-4 rounded-2xl bg-white/[0.02] border border-white/5 hover:bg-white/[0.04] transition-colors">
+                    <div className="mt-1">
+                      {item.icon === Palette && <Palette className="w-6 h-6 text-blue-400" />}
+                      {item.icon === Zap && <Sparkles className="w-6 h-6 text-cyan-400" />}
+                      {item.icon === CalendarCheck && <CalendarCheck className="w-6 h-6 text-yellow-400" />}
+                    </div>
+                    <div>
+                      <div className="font-semibold text-white mb-1">{item.title}</div>
+                      <div className="text-sm text-slate-400">{item.desc}</div>
+                    </div>
+                  </li>
+                ))}
+              </ul>
+            </FadeIn>
+            
+          </div>
+        </div>
+      </section>
+
 
       {/* Stats Bar */}
       <section className="relative z-10">
@@ -273,6 +360,66 @@ export default function App() {
               <div className="text-4xl md:text-5xl font-bold text-white mb-2">10x</div>
               <div className="text-sm text-slate-400 font-medium uppercase tracking-wider">ROI on Ad Spend</div>
             </FadeIn>
+          </div>
+        </div>
+      </section>
+
+      {/* How it Works */}
+      <section id="how-it-works" className="py-24 md:py-32 relative z-10">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="text-center max-w-3xl mx-auto mb-20">
+            <h2 className="text-3xl md:text-5xl font-bold mb-6">We build the automation. <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-500 via-cyan-400 to-yellow-400">You reap the rewards.</span></h2>
+            <p className="text-lg text-slate-400">
+              You don't need to be a tech expert. Digital Handyman takes care of the entire setup, training, and deployment of your AI automations. We custom-fit them to your business.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-12 relative">
+            {/* Connecting Line (Desktop) */}
+            <div className="hidden md:block absolute top-8 left-[15%] right-[15%] h-[2px] bg-white/5 overflow-hidden rounded-full">
+              <motion.div 
+                className="absolute inset-0 bg-gradient-to-r from-blue-600 via-cyan-500 to-yellow-400"
+                initial={{ scaleX: 0 }}
+                whileInView={{ scaleX: 1 }}
+                viewport={{ once: true, margin: "-100px" }}
+                transition={{ duration: 1.5, ease: "easeInOut" }}
+                style={{ originX: 0 }}
+              />
+              <motion.div
+                className="absolute inset-0 w-1/2 bg-gradient-to-r from-transparent via-white/50 to-transparent"
+                initial={{ x: "-200%" }}
+                whileInView={{ x: "200%" }}
+                transition={{ duration: 2.5, repeat: Infinity, ease: "linear", delay: 1.5 }}
+              />
+            </div>
+
+            {[
+              {
+                step: "01",
+                title: "We Learn Your Business",
+                desc: "We consult with you to understand your services, pricing, and how you want leads handled. We do the heavy lifting."
+              },
+              {
+                step: "02",
+                title: "We Deploy Your AI",
+                desc: "We connect your Google Business number, website forms, and ad campaigns to your custom-trained AI automation."
+              },
+              {
+                step: "03",
+                title: "You Watch Leads Convert",
+                desc: "The AI instantly engages every missed call and form fill, qualifying leads and booking them directly onto your calendar."
+              }
+            ].map((item, i) => (
+              <FadeIn key={i} delay={i * 0.2} className="relative z-10">
+                <div className="flex flex-col items-center text-center">
+                  <div className="w-16 h-16 rounded-full bg-slate-950 border-2 border-yellow-400/50 flex items-center justify-center text-xl font-bold text-yellow-400 mb-6 shadow-[0_0_20px_rgba(250,204,21,0.3)]">
+                    {item.step}
+                  </div>
+                  <h3 className="text-2xl font-semibold text-white mb-4">{item.title}</h3>
+                  <p className="text-slate-400">{item.desc}</p>
+                </div>
+              </FadeIn>
+            ))}
           </div>
         </div>
       </section>
@@ -349,66 +496,6 @@ export default function App() {
         </div>
       </section>
 
-      {/* How it Works */}
-      <section id="how-it-works" className="py-24 md:py-32 relative z-10">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="text-center max-w-3xl mx-auto mb-20">
-            <h2 className="text-3xl md:text-5xl font-bold mb-6">We build the automation. <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-500 via-cyan-400 to-yellow-400">You reap the rewards.</span></h2>
-            <p className="text-lg text-slate-400">
-              You don't need to be a tech expert. Digital Handyman takes care of the entire setup, training, and deployment of your AI automations. We custom-fit them to your business.
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-3 gap-12 relative">
-            {/* Connecting Line (Desktop) */}
-            <div className="hidden md:block absolute top-8 left-[15%] right-[15%] h-[2px] bg-white/5 overflow-hidden rounded-full">
-              <motion.div 
-                className="absolute inset-0 bg-gradient-to-r from-blue-600 via-cyan-500 to-yellow-400"
-                initial={{ scaleX: 0 }}
-                whileInView={{ scaleX: 1 }}
-                viewport={{ once: true, margin: "-100px" }}
-                transition={{ duration: 1.5, ease: "easeInOut" }}
-                style={{ originX: 0 }}
-              />
-              <motion.div
-                className="absolute inset-0 w-1/2 bg-gradient-to-r from-transparent via-white/50 to-transparent"
-                initial={{ x: "-200%" }}
-                whileInView={{ x: "200%" }}
-                transition={{ duration: 2.5, repeat: Infinity, ease: "linear", delay: 1.5 }}
-              />
-            </div>
-
-            {[
-              {
-                step: "01",
-                title: "We Learn Your Business",
-                desc: "We consult with you to understand your services, pricing, and how you want leads handled. We do the heavy lifting."
-              },
-              {
-                step: "02",
-                title: "We Deploy Your AI",
-                desc: "We connect your Google Business number, website forms, and ad campaigns to your custom-trained AI automation."
-              },
-              {
-                step: "03",
-                title: "You Watch Leads Convert",
-                desc: "The AI instantly engages every missed call and form fill, qualifying leads and booking them directly onto your calendar."
-              }
-            ].map((item, i) => (
-              <FadeIn key={i} delay={i * 0.2} className="relative z-10">
-                <div className="flex flex-col items-center text-center">
-                  <div className="w-16 h-16 rounded-full bg-slate-950 border-2 border-yellow-400/50 flex items-center justify-center text-xl font-bold text-yellow-400 mb-6 shadow-[0_0_20px_rgba(250,204,21,0.3)]">
-                    {item.step}
-                  </div>
-                  <h3 className="text-2xl font-semibold text-white mb-4">{item.title}</h3>
-                  <p className="text-slate-400">{item.desc}</p>
-                </div>
-              </FadeIn>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* Use Cases Section */}
       <section id="digital-workforce" className="py-24 md:py-32 relative z-10">
         <div className="max-w-7xl mx-auto px-6">
@@ -461,114 +548,273 @@ export default function App() {
         </div>
       </section>
 
-      {/* Comparison Chart Section */}
-      <section id="pricing" className="py-24 md:py-32 relative z-10">
+      {/* ACRM Section */}
+      <section id="acrm" className="py-24 md:py-32 relative z-10 bg-slate-900 border-y border-white/5">
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center max-w-3xl mx-auto mb-16">
-            <h2 className="text-3xl md:text-5xl font-bold mb-6">Choose your <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-500 via-cyan-400 to-yellow-400">automation level</span></h2>
+            <FadeIn>
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/20 text-sm text-blue-400 font-semibold mb-6">
+                Your Command Center
+              </div>
+              <h2 className="text-3xl md:text-5xl font-bold mb-6">What is an <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-400">ACRM?</span></h2>
+              <p className="text-lg text-slate-400">
+                A traditional CRM just stores names and emails. Our <strong>Automated Customer Relationship Manager (ACRM)</strong> actually works the leads for you. Everything from missed calls to appointment reminders happens in one place, automatically.
+              </p>
+            </FadeIn>
+          </div>
+
+          {/* Interactive ACRM Dashboard Showcase */}
+          <FadeIn delay={0.2}>
+            <div className="relative w-full max-w-5xl mx-auto rounded-2xl bg-slate-950 border border-slate-800 shadow-2xl overflow-hidden flex flex-col md:flex-row h-auto min-h-[600px]">
+              
+              {/* Sidebar */}
+              <div className="w-full md:w-48 lg:w-64 bg-slate-900 border-r border-slate-800 flex flex-col hidden md:flex">
+                <div className="p-6 border-b border-slate-800 flex items-center gap-2">
+                   <div className="w-8 h-8 rounded bg-gradient-to-br from-blue-500 to-cyan-500 flex items-center justify-center shadow-lg">
+                      <Zap className="w-5 h-5 text-white" />
+                   </div>
+                   <span className="font-bold text-white tracking-wide">WorkhorseOS</span>
+                </div>
+                <div className="flex-1 p-4 flex flex-col gap-2">
+                   {[
+                     { icon: Activity, label: "Dashboard", active: true },
+                     { icon: MessageSquare, label: "Conversations", badge: "3" },
+                     { icon: Users, label: "Contacts" },
+                     { icon: CalendarCheck, label: "Calendar" },
+                     { icon: RefreshCw, label: "Automations" }
+                   ].map((item, i) => (
+                     <div key={i} className={`flex items-center justify-between p-3 rounded-lg cursor-pointer transition-colors ${item.active ? 'bg-blue-600/10 text-blue-400' : 'text-slate-400 hover:bg-slate-800/50 hover:text-slate-200'}`}>
+                        <div className="flex items-center gap-3">
+                           <item.icon className="w-5 h-5" />
+                           <span className="font-medium text-sm">{item.label}</span>
+                        </div>
+                        {item.badge && <span className="bg-blue-600 text-white text-[10px] font-bold px-2 py-0.5 rounded-full">{item.badge}</span>}
+                     </div>
+                   ))}
+                </div>
+                <div className="p-4 border-t border-slate-800">
+                   <div className="flex items-center gap-3">
+                     <div className="w-10 h-10 rounded-full bg-slate-800 border border-slate-700 flex items-center justify-center overflow-hidden">
+                        <User className="w-5 h-5 text-slate-400" />
+                     </div>
+                     <div>
+                        <div className="text-sm font-semibold text-white">Demo User</div>
+                        <div className="text-xs text-slate-500 truncate max-w-[100px]">admin@localbiz.com</div>
+                     </div>
+                   </div>
+                </div>
+              </div>
+
+              {/* Main Dashboard Area */}
+              <div className="flex-1 bg-[#090C15] flex flex-col relative overflow-hidden">
+                 {/* Top Navigation */}
+                 <div className="h-16 border-b border-slate-800 flex items-center justify-between px-6 bg-slate-900/50 relative z-10">
+                    <div className="relative w-48 sm:w-64">
+                       <Search className="w-4 h-4 text-slate-500 absolute left-3 top-1/2 -translate-y-1/2" />
+                       <input type="text" placeholder="Search leads..." className="w-full bg-slate-950 border border-slate-800 rounded-full py-1.5 pl-9 pr-4 text-sm text-slate-300 focus:outline-none focus:border-blue-500 transition-colors cursor-not-allowed" readOnly />
+                    </div>
+                    <div className="flex items-center gap-4">
+                       <div className="relative cursor-pointer">
+                         <Bell className="w-5 h-5 text-slate-400 hover:text-white transition-colors" />
+                         <span className="absolute -top-1 -right-1 w-2.5 h-2.5 bg-red-500 rounded-full border-2 border-slate-900" />
+                       </div>
+                    </div>
+                 </div>
+
+                 {/* Content Grid */}
+                 <div className="flex-1 p-6 overflow-y-auto relative z-10">
+                    <div className="flex items-center justify-between mb-6">
+                       <h3 className="text-xl font-bold text-white">Overview</h3>
+                       <div className="flex items-center gap-2 text-sm text-slate-400 bg-slate-900 px-3 py-1.5 rounded-lg border border-slate-800">
+                          <span>Last 7 Days</span>
+                          <ArrowDown className="w-4 h-4" />
+                       </div>
+                    </div>
+
+                    <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-6">
+                       {/* Stat Card 1 */}
+                       <div className="bg-slate-900 border border-slate-800 rounded-xl p-5 hover:border-blue-500/30 transition-colors">
+                          <div className="flex items-center justify-between mb-4">
+                             <span className="text-sm font-medium text-slate-400">Missed Calls Recovered</span>
+                             <PhoneMissed className="w-5 h-5 text-blue-400" />
+                          </div>
+                          <div className="text-3xl font-bold text-white mb-1">14</div>
+                          <div className="text-xs text-emerald-400 font-medium flex items-center gap-1">
+                            <TrendingUp className="w-3 h-3" /> +3 from last week
+                          </div>
+                       </div>
+                       
+                       {/* Stat Card 2 */}
+                       <div className="bg-slate-900 border border-slate-800 rounded-xl p-5 hover:border-blue-500/30 transition-colors">
+                          <div className="flex items-center justify-between mb-4">
+                             <span className="text-sm font-medium text-slate-400">Estimates Booked</span>
+                             <CalendarCheck className="w-5 h-5 text-yellow-400" />
+                          </div>
+                          <div className="text-3xl font-bold text-white mb-1">8</div>
+                          <div className="text-xs text-slate-500 font-medium">$4,200 potential value</div>
+                       </div>
+
+                       {/* Stat Card 3 */}
+                       <div className="bg-slate-900 border border-slate-800 rounded-xl p-5 hover:border-blue-500/30 transition-colors sm:col-span-2 lg:col-span-1">
+                          <div className="flex items-center justify-between mb-4">
+                             <span className="text-sm font-medium text-slate-400">Review Rqsts Sent</span>
+                             <Star className="w-5 h-5 text-emerald-400" />
+                          </div>
+                          <div className="text-3xl font-bold text-white mb-1">22</div>
+                          <div className="text-xs text-emerald-400 font-medium flex items-center gap-1">
+                            +4 new 5-star reviews
+                          </div>
+                       </div>
+                    </div>
+
+                    <div className="grid lg:grid-cols-2 gap-6">
+                       {/* Recent Activity / Automations */}
+                       <div className="bg-slate-900 border border-slate-800 rounded-xl flex flex-col hover:border-slate-700 transition-[border-color]">
+                          <div className="p-5 border-b border-slate-800 flex items-center justify-between">
+                             <h4 className="font-semibold text-white">Live Automations</h4>
+                             <span className="flex h-2 w-2 relative">
+                                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                                <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+                             </span>
+                          </div>
+                          <div className="p-4 flex-1 flex flex-col gap-4">
+                             <motion.div initial={{opacity:0, y:10}} whileInView={{opacity:1, y:0}} transition={{delay:0.2}} viewport={{once:true}} className="flex gap-4">
+                                <div className="w-8 h-8 rounded-full bg-blue-500/20 flex items-center justify-center shrink-0 mt-0.5 border border-blue-500/30"><MessageSquare className="w-4 h-4 text-blue-400"/></div>
+                                <div className="flex-1"><div className="text-sm text-slate-200">Auto text-back sent to <span className="font-bold">John D.</span></div><div className="text-xs text-slate-500 mt-1">Just now</div></div>
+                             </motion.div>
+                             
+                             <motion.div initial={{opacity:0, y:10}} whileInView={{opacity:1, y:0}} transition={{delay:0.4}} viewport={{once:true}} className="flex gap-4">
+                                <div className="w-8 h-8 rounded-full bg-yellow-500/20 flex items-center justify-center shrink-0 mt-0.5 border border-yellow-500/30"><CalendarCheck className="w-4 h-4 text-yellow-400"/></div>
+                                <div className="flex-1"><div className="text-sm text-slate-200">AI booked <span className="font-bold">Sarah M.</span> for estimate at 2 PM</div><div className="text-xs text-slate-500 mt-1">15 mins ago</div></div>
+                             </motion.div>
+                             
+                             <motion.div initial={{opacity:0, y:10}} whileInView={{opacity:1, y:0}} transition={{delay:0.6}} viewport={{once:true}} className="flex gap-4">
+                                <div className="w-8 h-8 rounded-full bg-emerald-500/20 flex items-center justify-center shrink-0 mt-0.5 border border-emerald-500/30"><Star className="w-4 h-4 text-emerald-400"/></div>
+                                <div className="flex-1"><div className="text-sm text-slate-200">Review request sent to <span className="font-bold">Mike</span> (Job completed)</div><div className="text-xs text-slate-500 mt-1">1 hr ago</div></div>
+                             </motion.div>
+                          </div>
+                       </div>
+
+                       {/* Live Chat Preview */}
+                       <div className="bg-slate-900 border border-slate-800 rounded-xl flex flex-col hover:border-slate-700 transition-[border-color]">
+                            <div className="p-5 border-b border-slate-800 flex items-center gap-3">
+                               <Bot className="w-5 h-5 text-blue-400" />
+                               <h4 className="font-semibold text-white">Unified Inbox</h4>
+                            </div>
+                            <div className="flex-1 p-5 flex flex-col justify-end gap-4 min-h-[250px]">
+                                {/* AI Message */}
+                                <div className="flex gap-3 max-w-[85%]">
+                                  <div className="w-8 h-8 rounded-full bg-slate-800 flex items-center justify-center shrink-0 border border-slate-700"><Bot className="w-4 h-4 text-slate-300"/></div>
+                                  <div className="bg-slate-800 rounded-2xl rounded-tl-none p-3 text-sm text-slate-200 border border-slate-700 shadow-sm">
+                                     Hi Mark! I noticed we missed your call. How can we help you today?
+                                  </div>
+                                </div>
+                                {/* Customer Reply */}
+                                <div className="flex gap-3 max-w-[85%] self-end">
+                                  <div className="bg-blue-600 rounded-2xl rounded-tr-none p-3 text-sm text-white shadow-sm border border-blue-500">
+                                     I need an estimate for a bathroom remodel.
+                                  </div>
+                                </div>
+                                {/* AI Message */}
+                                <div className="flex gap-3 max-w-[85%]">
+                                  <div className="w-8 h-8 rounded-full bg-slate-800 flex items-center justify-center shrink-0 border border-slate-700"><Bot className="w-4 h-4 text-slate-300"/></div>
+                                  <div className="bg-slate-800 rounded-2xl rounded-tl-none p-3 text-sm text-slate-200 border border-slate-700 shadow-sm">
+                                     Absolutely! We'd love to help. We have availability this Wednesday at 10 AM or Thursday at 2 PM. Does either work for you?
+                                  </div>
+                                </div>
+                            </div>
+                       </div>
+                    </div>
+                 </div>
+
+                 {/* Gradient Overlay for style */}
+                 <div className="absolute top-0 right-0 w-64 h-64 bg-blue-500/10 blur-[100px] pointer-events-none" />
+              </div>
+
+            </div>
+          </FadeIn>
+        </div>
+      </section>
+
+      {/* Website Pricing Section */}
+      <section id="pricing" className="py-24 md:py-32 relative z-10 bg-slate-950/50">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="text-center max-w-3xl mx-auto mb-16">
+            <h2 className="text-3xl md:text-5xl font-bold mb-6">Workhorse Site <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-500 via-cyan-400 to-yellow-400">Investment</span></h2>
             <p className="text-lg text-slate-400">
-              Whether you're just starting to automate or ready for a full-scale AI workforce, we have the right toolkit for your business.
+              Choose the level of power you need for your online presence. Let us build your brand and your engine.
             </p>
           </div>
 
-          <div className="grid lg:grid-cols-2 gap-8 items-stretch">
-            {/* Lite Column */}
+          <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+            {/* Card 1: Website Design */}
             <FadeIn delay={0.1} className="h-full">
-              <div className="h-full rounded-3xl bg-slate-900/40 border border-white/5 p-8 md:p-10 flex flex-col relative overflow-hidden group hover:border-white/10 transition-colors">
-                <div className="flex items-center justify-between mb-8">
-                  <div className="flex items-center gap-4">
-                    <div className="w-12 h-12 rounded-xl bg-white/5 flex items-center justify-center">
-                      <Wrench className="w-6 h-6 text-slate-400" />
-                    </div>
-                    <div>
-                      <h3 className="text-2xl font-bold text-white">Digital Handyman Automation Toolkit</h3>
-                      <p className="text-slate-400 text-sm">Automated systems that capture and follow up on leads</p>
-                    </div>
-                  </div>
-                  <span className="px-3 py-1 rounded-full bg-white/5 border border-white/10 text-[10px] font-bold text-slate-400 tracking-widest uppercase">Lite</span>
-                </div>
-
-                <div className="space-y-8 mb-12 flex-grow">
-                  <div className="text-[10px] font-bold text-slate-500 tracking-[0.2em] uppercase mb-6">Lead Capture & Automation</div>
-                  
+              <div className="h-full rounded-3xl bg-slate-900/50 border border-white/10 p-8 flex flex-col hover:bg-slate-900/80 transition-colors">
+                <h3 className="text-2xl font-bold text-white mb-4">Website Design</h3>
+                <div className="text-4xl font-bold text-white mb-2">$1,000 <span className="text-lg text-slate-400 font-normal">Setup</span></div>
+                <div className="text-xl text-blue-400 font-semibold mb-8">+$77 / month <span className="text-sm text-slate-400 font-normal">hosting fee</span></div>
+                
+                <ul className="space-y-4 mb-8 flex-1">
                   {[
-                    { icon: PhoneMissed, title: "Missed Call Text-Back", desc: "Instantly texts anyone who calls when you're busy. Turns missed calls into text conversations automatically." },
-                    { icon: MessageSquare, title: "24/7 AI Website Chat Widget", desc: "Engages visitors on your site around the clock and collects their contact info." },
-                    { icon: Send, title: "Instant SMS Follow-Up", desc: "Automatically texts leads the second they submit a form. Strike while the iron is hot." },
-                    { icon: CalendarCheck, title: "Seamless Booking", desc: "AI handles back-and-forth scheduling directly onto your calendar — no phone tag required." },
-                    { icon: RefreshCw, title: "Database Reactivation", desc: "ECHO uses AI-powered SMS to re-engage dead leads and past clients, turning your existing list into booked appointments." },
-                    { icon: TrendingUp, title: "Reputation Rocket (Auto Reviews)", desc: "ECHO triggers Google review requests via SMS the moment you finish a job — driving map rankings and organic calls on autopilot." }
-                  ].map((item, i) => (
-                    <div key={i} className="flex gap-4">
-                      <item.icon className="w-5 h-5 text-slate-500 shrink-0 mt-1" />
-                      <div>
-                        <h4 className="text-white font-semibold mb-1">{item.title}</h4>
-                        <p className="text-slate-400 text-sm leading-relaxed">{item.desc}</p>
-                      </div>
-                    </div>
+                    "Custom, Professional Design",
+                    "Mobile-Responsive Layouts",
+                    "SEO Optimized Structure",
+                    "High-Speed Hosting",
+                    "Basic Contact Forms",
+                    "Connect Your Custom Domain"
+                  ].map((feature, i) => (
+                    <li key={i} className="flex items-start gap-3 text-slate-300">
+                      <CheckCircle2 className="w-5 h-5 text-blue-400 shrink-0 mt-0.5" />
+                      <span>{feature}</span>
+                    </li>
                   ))}
-                </div>
+                </ul>
 
                 <motion.a 
                   href="https://api.digitalhandyman.xyz/payment-link/69beae18b5622a509ebe3311"
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
-                  className="w-full py-4 rounded-xl bg-white/5 border border-white/10 text-white font-semibold flex items-center justify-center gap-2 hover:bg-white/10 transition-colors"
+                  className="w-full mt-4 py-4 rounded-xl bg-white/5 border border-white/10 text-white font-semibold flex items-center justify-center gap-2 hover:bg-white/10 transition-colors"
                 >
-                  Get Access to Digital Handyman Automation Toolkit <ArrowRight className="w-4 h-4" />
+                  Get Website Design <ArrowRight className="w-4 h-4" />
                 </motion.a>
               </div>
             </FadeIn>
 
-            {/* Pro Column */}
+            {/* Card 2: Website + Automations */}
             <FadeIn delay={0.2} className="h-full">
-              <div className="h-full rounded-3xl bg-gradient-to-b from-slate-900 to-slate-950 border border-blue-500/20 p-8 md:p-10 flex flex-col relative overflow-hidden group hover:border-blue-500/40 transition-colors shadow-[0_0_50px_rgba(59,130,246,0.1)]">
-                <div className="absolute top-0 right-0 w-32 h-32 bg-blue-500/10 rounded-full blur-[60px]" />
+              <div className="h-full rounded-3xl bg-gradient-to-b from-slate-900 to-slate-950 border border-blue-500/20 p-8 flex flex-col relative overflow-hidden group hover:border-blue-500/40 transition-colors shadow-[0_0_50px_rgba(59,130,246,0.1)]">
+                <div className="absolute top-0 right-0 bg-blue-500/10 w-64 h-64 blur-3xl rounded-full pointer-events-none group-hover:bg-blue-500/20 transition-colors duration-500" />
+                <div className="inline-block px-4 py-1.5 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 text-sm font-semibold mb-6 w-fit">
+                  The Workhorse
+                </div>
+                <h3 className="text-2xl font-bold text-white mb-4">Website + Automations</h3>
+                <div className="text-4xl font-bold text-white mb-2">$1,500 <span className="text-lg text-slate-400 font-normal">Setup</span></div>
+                <div className="text-xl text-cyan-400 font-semibold mb-8">+$249 / month <span className="text-sm text-slate-400 font-normal">hosting & automation</span></div>
                 
-                <div className="flex items-center justify-between mb-8 relative z-10">
-                  <div className="flex items-center gap-4">
-                    <div className="w-12 h-12 rounded-xl bg-blue-500/20 flex items-center justify-center">
-                      <Bot className="w-6 h-6 text-blue-400" />
-                    </div>
-                    <div>
-                      <h3 className="text-2xl font-bold text-white">Digital Handyman Pro</h3>
-                      <p className="text-slate-400 text-sm">Everything in the Toolkit, plus a 24/7 AI employee that closes</p>
-                    </div>
-                  </div>
-                  <span className="px-3 py-1 rounded-full bg-blue-500/20 border border-blue-500/30 text-[10px] font-bold text-blue-400 tracking-widest uppercase">Pro</span>
-                </div>
-
-                <div className="space-y-8 mb-12 flex-grow relative z-10">
-                  <div className="text-[10px] font-bold text-blue-400/60 tracking-[0.2em] uppercase mb-6">Everything in the Toolkit, Plus...</div>
-                  
+                <ul className="space-y-4 mb-8 flex-1">
                   {[
-                    { icon: Mic, title: "AI Voice Agent (Echo)", desc: "ECHO answers calls live, holds natural conversations, and handles inquiries — just like a real employee. Available every hour of every day." },
-                    { icon: UserCheck, title: "Real-Time Lead Qualification", desc: "ECHO asks the right questions, determines fit and intent, and filters out time-wasters — so your team only talks to serious prospects." },
-                    { icon: Handshake, title: "Warm Handoff To Your Team", desc: "When ECHO qualifies a lead, it hands off a full summary — their needs, urgency, and intent — so your team steps in ready to close." },
-                    { icon: Brain, title: "Trained On Your Business", desc: "ECHO is custom-trained on your services, your pricing, and the way you communicate. It sounds like a knowledgeable member of your team — not a robot." }
-                  ].map((item, i) => (
-                    <div key={i} className="flex gap-4">
-                      <div className="w-10 h-10 rounded-lg bg-blue-500/10 flex items-center justify-center shrink-0">
-                        <item.icon className="w-5 h-5 text-blue-400" />
-                      </div>
-                      <div className="flex-grow">
-                        <div className="flex items-center justify-between mb-1">
-                          <h4 className="text-white font-semibold">{item.title}</h4>
-                          <span className="text-[8px] font-bold text-blue-400 bg-blue-500/10 px-1.5 py-0.5 rounded border border-blue-500/20 uppercase tracking-tighter">Pro Only</span>
-                        </div>
-                        <p className="text-slate-400 text-sm leading-relaxed">{item.desc}</p>
-                      </div>
-                    </div>
+                    "Everything in Website Design",
+                    "Lead Capture Automations",
+                    "Missed Call Text-Back",
+                    "Automated Nurture Sequences",
+                    "CRM Integration",
+                    "Designed to Grow Your Business"
+                  ].map((feature, i) => (
+                    <li key={i} className="flex items-start gap-3 text-slate-300">
+                      <CheckCircle2 className="w-5 h-5 text-cyan-400 shrink-0 mt-0.5" />
+                      <span>{feature}</span>
+                    </li>
                   ))}
-                </div>
+                </ul>
 
                 <motion.a 
                   href="https://buy.stripe.com/4gw9Cq6yN43m3YI9AA"
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
-                  className="w-full py-4 rounded-xl bg-gradient-to-r from-blue-600 via-cyan-500 to-blue-500 text-white font-semibold flex items-center justify-center gap-2 shadow-lg shadow-blue-500/20 relative z-10"
+                  className="w-full mt-4 py-4 rounded-xl bg-gradient-to-r from-blue-600 via-cyan-500 to-blue-500 text-white font-semibold flex items-center justify-center gap-2 shadow-lg shadow-blue-500/20 relative z-10"
                 >
-                  Look at Digital Handyman Pro <ArrowRight className="w-4 h-4" />
+                  Get Website + Automations <ArrowRight className="w-4 h-4" />
                 </motion.a>
               </div>
             </FadeIn>
@@ -824,8 +1070,9 @@ export default function App() {
             </div>
           </div>
           
-          <div className="pt-8 border-t border-white/10 text-center md:text-left text-sm text-slate-500 flex flex-col md:flex-row justify-between items-center">
+          <div className="pt-8 border-t border-white/10 text-center md:text-left text-sm text-slate-500 flex flex-col md:flex-row justify-between items-center gap-4">
             <p>© {new Date().getFullYear()} Digital Handyman. All rights reserved.</p>
+            <p className="font-medium text-slate-400">Automations powered by Digital Handyman</p>
             <p className="mt-2 md:mt-0">Designed for local business growth.</p>
           </div>
         </div>
